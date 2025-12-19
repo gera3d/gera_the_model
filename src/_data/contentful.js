@@ -10,6 +10,7 @@ module.exports = async function () {
   const brandConfig = await client.getEntries({ content_type: 'brandConfig' });
   const person = await client.getEntries({ content_type: 'person' });
   const images = await client.getEntries({ content_type: 'professionalImage', order: 'sys.createdAt' });
+  const cinematicImages = await client.getEntries({ content_type: 'cinematicImage', order: 'sys.createdAt' });
 
   return {
     brand: brandConfig.items[0]?.fields || {},
@@ -18,6 +19,11 @@ module.exports = async function () {
       ...item.fields,
       id: item.sys.id,
       url: item.fields.image?.fields?.file?.url ? `https:${item.fields.image.fields.file.url}` : null
+    })),
+    cinematic: cinematicImages.items.map(item => ({
+      ...item.fields,
+      id: item.sys.id,
+      url: item.fields.imageUrl || (item.fields.image?.fields?.file?.url ? `https:${item.fields.image.fields.file.url}` : null)
     }))
   };
 };

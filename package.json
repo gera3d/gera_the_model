@@ -19,5 +19,8 @@
     "dotenv": "^17.2.3",
     "gh-pages": "^6.3.0",
     "luxon": "^3.7.2"
+  },
+  "dependencies": {
+    "contentful-management": "^11.66.0"
   }
 }
