@@ -272,51 +272,51 @@
       transform: translateY(0);
     }
 
-    /* Process Section (How It Works) */
-    .process-section {
-      padding: 6rem 0;
+    /* Stats Bar */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      padding: 5rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      background: var(--bg);
     }
 
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .process-step {
+    .stat {
       text-align: center;
-      padding: 2rem;
+      position: relative;
     }
 
-    .step-number {
+    .stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    .stat-value {
       font-family: var(--font-display);
-      font-size: 3rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      letter-spacing: 0.05em;
     }
 
-    .step-title {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
-
-    .step-desc {
-      font-size: 0.85rem;
+    .stat-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--text-muted);
-      line-height: 1.7;
+      margin-top: 0.75rem;
     }
 
     @media (max-width: 768px) {
-      .process-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+      .stats { flex-wrap: wrap; gap: 2rem; }
+      .stat { flex: 1 1 40%; }
+      .stat:not(:last-child)::after { display: none; }
     }
 
     /* Footer */
@@ -410,7 +410,7 @@
 
   <main>
     
-<!-- Hero: Service Focus -->
+<!-- Hero: Full-Screen Impact -->
 <section class="hero" style="height: 100vh; display: flex; align-items: flex-end; justify-content: center; position: relative; overflow: hidden;">
   <div class="hero-img-wrap">
     <img src="https://images.ctfassets.net/oa9mphdwsgvp/star-wars-heroic/3504b53d192ac750370f8d5c73cb01a4/hTKA9hC1wX8ct0Op.png" 
@@ -419,9 +419,8 @@
   </div>
   
   <div style="position: relative; z-index: 1; text-align: center; padding: 0 2rem 8rem;">
-    <p class="label" style="margin-bottom: 1.5rem;">Virtual Product Modeling</p>
-    <h1 class="display" style="font-size: clamp(2.5rem, 12vw, 8rem);">YOUR PRODUCT<br>MY PRESENCE</h1>
-    <p class="label" style="margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8;">Send your product images. Get premium lifestyle content featuring me with your brand.</p>
+    <h1 class="display">GERA<br>YEREMIN</h1>
+    <p class="label" style="margin-top: 2rem;">Model — Sonoma County, CA</p>
   </div>
 
   <div class="scroll-indicator">
@@ -430,37 +429,30 @@
   </div>
 </section>
 
-<!-- How It Works -->
-<section id="how-it-works" class="process-section">
-  <div class="container">
-    <p class="label" style="text-align: center; margin-bottom: 4rem;">How It Works</p>
-    
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="step-number">01</div>
-        <h3 class="step-title">Share</h3>
-        <p class="step-desc">Send images of your product and share your brand vision</p>
-      </div>
-      
-      <div class="process-step">
-        <div class="step-number">02</div>
-        <h3 class="step-title">Create</h3>
-        <p class="step-desc">I generate professional lifestyle content featuring your product</p>
-      </div>
-      
-      <div class="process-step">
-        <div class="step-number">03</div>
-        <h3 class="step-title">Receive</h3>
-        <p class="step-desc">Get ready-to-use photos within 48-72 hours</p>
-      </div>
-    </div>
+<!-- Stats Bar -->
+<section class="stats" id="stats">
+  <div class="stat">
+    <div class="stat-value">6'</div>
+    <div class="stat-label">Height</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">38</div>
+    <div class="stat-label">Suit</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">32"</div>
+    <div class="stat-label">Waist</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">10.5</div>
+    <div class="stat-label">Shoe US</div>
   </div>
 </section>
 
 <!-- Portfolio Gallery -->
 <section id="portfolio" style="padding: 6rem 0;">
   <div class="container">
-    <p class="label" style="text-align: center; margin-bottom: 4rem;">Example Work</p>
+    <p class="label" style="text-align: center; margin-bottom: 4rem;">Selected Work</p>
     
     <div class="gallery">
       <!-- Row 1: Mix of styles -->
@@ -525,10 +517,9 @@
 <!-- Contact Section -->
 <section id="contact" style="padding: 10rem 0; text-align: center; border-top: 1px solid var(--border);">
   <div class="container">
-    <p class="label" style="margin-bottom: 2rem;">Ready to get started?</p>
-    <h2 class="display" style="font-size: clamp(2.5rem, 10vw, 6rem);">START A<br>PROJECT</h2>
-    <p class="label" style="margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.8; margin-bottom: 3rem;">Tell me about your product and let's create something amazing together.</p>
-    <div class="magnetic-wrap">
+    <p class="label" style="margin-bottom: 2rem;">Bookings & Representation</p>
+    <h2 class="display" style="font-size: clamp(2.5rem, 10vw, 7rem);">LET'S WORK</h2>
+    <div class="magnetic-wrap" style="margin-top: 4rem;">
       <a href="mailto:gera@yerem.in" class="contact-btn">
         Get in Touch
       </a>
