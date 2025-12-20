@@ -10,7 +10,7 @@ layout: base.njk
     <div style="position: absolute; inset: 0; background: linear-gradient(transparent 50%, var(--bg) 100%);"></div>
   </div>
   
-  <div style="position: relative; z-index: 1; text-align: center; padding: 0 2rem 8rem;">
+  <div style="position: relative; z-index: 1; text-align: center; padding: 0 2rem 12rem;">
     <h1 class="display">GERA<br>YEREMIN</h1>
     <p class="label" style="margin-top: 2rem;">Model — Sonoma County, CA</p>
   </div>
@@ -105,6 +105,9 @@ layout: base.njk
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     overflow: hidden;
+    background: var(--bg);
+    position: relative;
+    z-index: 10;
   }
 
   .brands-marquee {
@@ -293,7 +296,7 @@ layout: base.njk
   /* Scroll indicator */
   .scroll-indicator {
     position: absolute;
-    bottom: 3rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
